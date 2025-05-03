@@ -3,7 +3,7 @@
 ----------------------------------- */
 :root {
   /* Color Variables */
-  --primary: #3b66ff;
+  --primary: #f37907;
   --primary-dark: #2851e7;
   --primary-light: #6987ff;
   --secondary: #131b2f;
