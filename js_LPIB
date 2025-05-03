@@ -1,5 +1,7 @@
 // Wait for DOM to load
+
 document.addEventListener("DOMContentLoaded", function () {
+
   // --------------------------------------------------------
   // Mobile Menu Toggle
   // --------------------------------------------------------
@@ -33,6 +35,40 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Prevent clicks inside dropdown from closing it
     dropdownContent.addEventListener("click", function(e) {
+      e.stopPropagation();
+    });
+  }
+
+    // --------------------------------------------------------
+  // Integrations Dropdown (Click-based)
+  // --------------------------------------------------------
+  const integrationsDropdown = document.querySelector('.navbar-item.has-dropdown');
+  const integrationsLink = integrationsDropdown?.querySelector('.navbar-link');
+  const navbarDropdown = integrationsDropdown?.querySelector('.navbar-dropdown');
+  
+  if (integrationsLink && navbarDropdown) {
+    // Add click event to the integrations link
+    integrationsLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Toggle the dropdown visibility
+      if (navbarDropdown.style.display === 'block') {
+        navbarDropdown.style.display = 'none';
+      } else {
+        navbarDropdown.style.display = 'block';
+      }
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!integrationsDropdown.contains(e.target)) {
+        navbarDropdown.style.display = 'none';
+      }
+    });
+    
+    // Prevent clicks inside the dropdown from closing it
+    navbarDropdown.addEventListener('click', function(e) {
       e.stopPropagation();
     });
   }
