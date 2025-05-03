@@ -16,8 +16,8 @@
   --text-light: #718096;
   --white: #ffffff;
   --success: #38b2ac;
-  --warning: #ed8936;
-  --error: #e53e3e;
+  --warning: #e93f19;
+  --error: #ff0800;
   
   /* Shadow Variables */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -340,6 +340,11 @@ img {
   z-index: 1000;
   margin-top: 0.5rem;
   padding: 1rem;
+}
+
+/* Remove hover effect to make it click-based only */
+.navbar-item.has-dropdown:hover .navbar-dropdown {
+  display: none;
 }
 
 .dropdown-item {
